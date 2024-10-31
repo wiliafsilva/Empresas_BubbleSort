@@ -8,20 +8,12 @@ public class Main {
 
         List<Empresa> empresas = ordenarEmpresas.lerEmpresas();
 
-        System.out.println("Empresas carregadas: ");
-        for (Empresa empresa : empresas) {
-            System.out.println(empresa);
-        }
-
+        // Ordena as empresas
         ordenarEmpresas.bubbleSorting(empresas);
 
-        System.out.println("\nEmpresas ordenadas pelo valor de mercado:"); // Botei pra debuggar
+        // Exibe apenas as empresas ordenadas
         for (Empresa empresa : empresas) {
             System.out.println(empresa);
         }
-
-        ordenarEmpresas.escreverEmpresas(empresas);
-
-        System.out.println("\nEmpresas ordenadas foram gravadas no arquivo EmpresasFiltradas.txt");
     }
 }
