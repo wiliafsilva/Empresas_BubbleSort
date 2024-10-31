@@ -15,5 +15,6 @@ public class Main {
         for (Empresa empresa : empresas) {
             System.out.println(empresa);
         }
+        ordenarEmpresas.escreverEmpresas(empresas);
     }
 }
