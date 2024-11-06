@@ -12,11 +12,11 @@ public class OrdernarEmpresas {
 
         try(BufferedReader br = new BufferedReader(new FileReader("src/Empresas_BubbleSort.txt"))){
             String line;
-            while ((line = br.readLine())!=null){
+            while ((line = br.readLine()) != null){
                 String[] data = line.split(" \\| ");
                 String nomeEmpresa = data[0];
                 String inscricaoEmpresa = data[1];
-                Double valorMercado = Double.parseDouble(data[2].replaceAll(",","").trim());
+                Double valorMercado = Double.parseDouble(data[2].replaceAll(",", "").trim());
                 empresas.add(new Empresa(nomeEmpresa, inscricaoEmpresa, valorMercado));
             }
         } catch (IOException e) {
@@ -28,9 +28,9 @@ public class OrdernarEmpresas {
 
     public void bubbleSorting(List<Empresa> empresas) {
         int n = empresas.size();
-        for (int i = 0; i < n - 1; i++) { // Mateus, aqui faz percorrer o loop
+        for (int i = 0; i < n - 1; i++) { // Percorre as comparações
             for (int j = 0; j < n - i - 1; j++) {
-                if (empresas.get(j).getValorMercado() > empresas.get(j + 1).getValorMercado()) {// Aqui realiza as trocas dentro do loop
+                if (empresas.get(j).getValorMercado() < empresas.get(j + 1).getValorMercado()) {
                     Empresa temporarioVar = empresas.get(j);
                     empresas.set(j, empresas.get(j + 1));
                     empresas.set(j + 1, temporarioVar);
@@ -39,7 +39,7 @@ public class OrdernarEmpresas {
         }
     }
     public void escreverEmpresas(List<Empresa> empresas) {
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("src/EmpresasFiltradas.txt"))){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/EmpresasFiltradas.txt"))){
             for (Empresa empresa : empresas) {
                 bw.write(empresa.toString());
                 bw.newLine();
